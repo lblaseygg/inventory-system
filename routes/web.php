@@ -10,4 +10,8 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+Route::middleware(['auth', 'admin'])->get('/admin', function () {
+    return 'Admin area';
+});
+
 require __DIR__.'/settings.php';
